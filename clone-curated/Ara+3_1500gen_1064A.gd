@@ -1,0 +1,16 @@
+#=GENOME_DIFF	1.0
+#=TITLE	Ara+3_1500gen_1064A
+#=AUTHOR	Deatherage, Daniel
+#=TIME	1500
+#=POPULATION	Ara+3
+#=TREATMENT	LTEE
+#=CLONE	A
+#=REFSEQ	BarrickLab-Private:genomes/reference/REL606.6.gbk
+#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara+3_1500gen_1064A_R2.fastq.gz
+#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara+3_1500gen_1064A_R1.fastq.gz
+DEL	1	.	REL606	474383	9
+SNP	2	.	REL606	726430	T
+SNP	3	.	REL606	1733173	A
+MOB	4	.	REL606	2693060	IS4	-1	13
+SNP	5	.	REL606	3327572	T
+DEL	6	.	REL606	3894997	5691	mediated=IS150

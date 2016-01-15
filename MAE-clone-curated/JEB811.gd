@@ -1,0 +1,37 @@
+#=GENOME_DIFF	1.0
+#=TITLE	JEB811
+#=TIME	14300
+#=POPULATION	5
+#=TREATMENT	MAE
+#=CLONE	A
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_1_1_pf_ACGT.fastq.gz
+#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_2_1_pf_ACGT.fastq.gz
+#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_3_1_pf_ACGT.fastq.gz
+SNP	1	.	REL606	67261	C
+SNP	2	.	REL606	905900	A
+SNP	3	.	REL606	913638	T
+SNP	4	.	REL606	1067052	C
+SNP	5	.	REL606	1235628	T
+SNP	6	.	REL606	1474321	A
+DEL	7	.	REL606	1720842	875
+SNP	8	.	REL606	1756645	G
+SNP	9	.	REL606	1819454	T
+DEL	10	.	REL606	1843592	2042
+DEL	11	.	REL606	2100308	22146
+SNP	12	.	REL606	2209395	C
+DEL	13	.	REL606	2220296	11
+SNP	14	.	REL606	2260713	A
+SNP	15	.	REL606	2722513	A
+SNP	16	.	REL606	3174019	G
+CON	17	.	REL606	3551294	1961	REL606:3698291-3700251	between=rhsABC	note=rhsB to rhsA
+SNP	18	.	REL606	3620453	T
+SNP	19	.	REL606	3638500	C
+DEL	20	.	REL606	3893550	1	adjacent=IS150
+CON	21	.	REL606	4016279	1776	REL606:3354292-3352513	between=rRNA	note=rRNA-A to rRNA-D
+MOB	22	.	REL606	4049580	IS150	1	3
+SNP	23	.	REL606	4140039	A
+CON	24	.	REL606	4150140	1422	REL606:2648955-2647534	between=rRNA	note=end of homology predicted with SUB mutations in original breseq run because it is uniquely aligned to copy past end
+SNP	25	.	REL606	4228754	T
+SNP	26	.	REL606	4535767	T
+DEL	27	.	REL606	4595564	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=8	repeat_seq=G

@@ -1,0 +1,15 @@
+#=GENOME_DIFF	1.0
+#=TITLE	Ara+6_1500gen_1067B
+#=AUTHOR	Deatherage, Daniel
+#=TIME	1500
+#=POPULATION	Ara+6
+#=TREATMENT	LTEE
+#=CLONE	B
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara+6_1500gen_1067B.fastq.gz
+SNP	1	.	REL606	651631	A
+SNP	2	.	REL606	1733172	A
+DEL	3	.	REL606	2842087	220
+SNP	4	.	REL606	3183267	T
+SNP	5	.	REL606	3762117	T
+DEL	6	.	REL606	3894997	6462	mediated=IS150

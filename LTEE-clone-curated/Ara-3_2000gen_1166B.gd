@@ -1,0 +1,21 @@
+#=GENOME_DIFF	1.0
+#=TITLE	Ara-3_2000gen_1166B
+#=AUTHOR	Deatherage, Daniel
+#=TIME	2000
+#=POPULATION	Ara-3
+#=TREATMENT	LTEE
+#=CLONE	B
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara-3_2000gen_1166B_R1.fastq.gz
+#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara-3_2000gen_1166B_R2.fastq.gz
+MOB	1	.	REL606	16972	IS150	-1	3
+MOB	2	.	REL606	92876	IS150	1	3
+AMP	3	.	REL606	588495	1978	2	between=IS150
+SNP	4	.	REL606	920514	C
+MOB	5	.	REL606	1733141	IS150	1	3
+MOB	6	.	REL606	2098365	IS150	1	3
+SNP	7	.	REL606	3675498	C
+DEL	8	.	REL606	3894997	6406	mediated=IS150
+SNP	9	.	REL606	4101029	T
+SNP	10	.	REL606	4141441	T
+INS	11	.	REL606	4530778	AACCCT	repeat_length=6	repeat_new_copies=2	repeat_ref_copies=1	repeat_seq=AACCCT

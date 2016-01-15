@@ -1,0 +1,15 @@
+#=GENOME_DIFF	1.0
+#=TITLE	Ara-2_2000gen_1165A
+#=AUTHOR	Deatherage, Daniel
+#=TIME	2000
+#=POPULATION	Ara-2
+#=TREATMENT	LTEE
+#=CLONE	A
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara-2_2000gen_1165A.fastq.gz
+SNP	1	.	REL606	649522	T
+SNP	2	.	REL606	1733754	T
+MOB	3	.	REL606	2322340	IS186	-1	6	phylogeny_id=1
+SNP	4	.	REL606	2619643	A
+SNP	5	.	REL606	3762120	A
+DEL	6	.	REL606	3894997	614	mediated=IS150

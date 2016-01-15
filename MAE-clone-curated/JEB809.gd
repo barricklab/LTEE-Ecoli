@@ -1,0 +1,33 @@
+#=GENOME_DIFF	1.0
+#=TITLE	JEB809
+#=TIME	14300
+#=POPULATION	3
+#=TREATMENT	MAE
+#=CLONE	A
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_1_1_pf_CAGT.fastq.gz
+#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_2_1_pf_CAGT.fastq.gz
+#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_3_1_pf_CAGT.fastq.gz
+SNP	1	.	REL606	254541	A
+SNP	2	.	REL606	346477	T
+SNP	3	.	REL606	404281	A
+SNP	4	.	REL606	1330411	T
+SNP	5	.	REL606	1412057	A
+MOB	6	.	REL606	1750263	IS1	1	8	mob_region=REL606:4505342-4506109
+SNP	7	.	REL606	1914647	A
+SNP	8	.	REL606	1933338	C
+SNP	9	.	REL606	1984069	T
+SNP	10	.	REL606	2043348	T
+INS	11	.	REL606	2103918	CCAG	repeat_length=4	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=CCAG
+DEL	12	.	REL606	2114852	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=8	repeat_seq=T
+SNP	13	.	REL606	2288336	G
+SNP	14	.	REL606	2417540	C
+SNP	15	.	REL606	2947435	G
+SNP	16	.	REL606	2954619	A
+CON	17	.	REL606	3551294	1144	REL606:3698291-3699434	between=rhsABC	note=rhsB to rhsA
+SNP	18	.	REL606	3626006	A
+SNP	19	.	REL606	4071438	G
+SNP	20	.	REL606	4321889	G
+SNP	21	.	REL606	4484681	A	adjacent=IS4
+DEL	22	.	REL606	4506110	16229	between=IS1
+SNP	23	.	REL606	4546917	T

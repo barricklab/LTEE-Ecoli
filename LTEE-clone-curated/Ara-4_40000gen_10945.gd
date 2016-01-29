@@ -6,7 +6,7 @@
 #=TREATMENT	LTEE
 #=CLONE	B
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
-#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara-4_40000gen_10945.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584886/SRR2584886.fastq.gz
 SNP	1	.	REL606	1945	C
 INS	2	.	REL606	9913	GG	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=6	repeat_seq=G
 SNP	3	.	REL606	12406	G

@@ -6,7 +6,7 @@
 #=TREATMENT	LTEE
 #=CLONE	A
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
-#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara+6_5000gen_2178A.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/002/SRR2584832/SRR2584832.fastq.gz
 INS	1	.	REL606	648665	AGA
 SNP	2	.	REL606	1733172	A
 SNP	3	.	REL606	1745960	C

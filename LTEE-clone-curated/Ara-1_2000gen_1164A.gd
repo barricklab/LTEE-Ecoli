@@ -6,8 +6,8 @@
 #=TREATMENT	LTEE
 #=CLONE	A
 #=REFSEQ	BarrickLab-Public:release/reference/REL606.6.gbk
-#=READSEQ	SRA:SRR030253_1
-#=READSEQ	SRA:SRR030253_2
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR030/SRR030253/SRR030253_1.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR030/SRR030253/SRR030253_2.fastq.gz
 MOB	1	.	REL606	795320	IS186	1	6
 SNP	2	.	REL606	1329516	T
 SNP	3	.	REL606	1733101	C

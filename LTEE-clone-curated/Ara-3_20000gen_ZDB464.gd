@@ -6,7 +6,7 @@
 #=TREATMENT	LTEE
 #=CLONE	B
 #=REFSEQ	BarrickLab-Public:release/reference/REL606.6.gbk
-#=READSEQ	SRA:SRR098285
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR098/SRR098285/SRR098285.fastq.gz
 SNP	1	.	REL606	9972	G
 DEL	2	.	REL606	16989	1	adjacent=IS150	within=3:2
 MOB	3	.	REL606	16989	IS150	1	4

@@ -6,8 +6,8 @@
 #=TREATMENT	LTEE
 #=CLONE	A
 #=REFSEQ	BarrickLab-Public:release/reference/REL606.6.gbk
-#=READSEQ	SRA:SRR030254_1
-#=READSEQ	SRA:SRR030254_2
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR030/SRR030254/SRR030254_1.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR030/SRR030254/SRR030254_2.fastq.gz
 DEL	1	.	REL606	430845	1	adjacent=IS186
 INS	2	.	REL606	475292	G
 SNP	3	.	REL606	649391	A

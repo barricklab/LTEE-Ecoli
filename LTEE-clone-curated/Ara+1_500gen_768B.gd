@@ -6,7 +6,7 @@
 #=TREATMENT	LTEE
 #=CLONE	B
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
-#=READSEQ	BarrickLab-Private:/genomes/LTEE_Paper/Ara+1_500gen_768B.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/009/SRR2584409/SRR2584409.fastq.gz
 AMP	1	.	REL606	880542	24155	3
 SNP	2	.	REL606	1331020	A
 MOB	3	.	REL606	2448493	IS186	-1	6	phylogeny_id=1

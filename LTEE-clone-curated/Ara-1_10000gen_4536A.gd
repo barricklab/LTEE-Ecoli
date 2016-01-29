@@ -6,8 +6,8 @@
 #=TREATMENT	LTEE
 #=CLONE	A
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
-#=READSEQ	SRA:SRR030255_1
-#=READSEQ	SRA:SRR030255_2
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR030/SRR030255/SRR030255_1.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR030/SRR030255/SRR030255_2.fastq.gz
 SNP	1	.	REL606	380188	C
 INS	2	.	REL606	475292	G
 DEL	3	.	REL606	547700	8224	mediated=IS1

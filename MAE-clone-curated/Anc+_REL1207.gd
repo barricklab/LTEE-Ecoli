@@ -1,6 +1,4 @@
 #=GENOME_DIFF	1.0
-#=AUTHOR	
-#=REFSEQ	BarrickLab-Private:genomes/reference/REL606.5.gbk
 #=COMMENT Includes 8 mutations, one of which is an Ara+ reversion mutation
 #=COMMENT Mutations inferred as alleles shared by 15 sequenced evolved clones.
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk

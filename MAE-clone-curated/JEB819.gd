@@ -5,10 +5,7 @@
 #=TREATMENT	MAE
 #=CLONE	A
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
-#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_5_1_pf_ATAT.fastq.gz
-#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_6_1_pf_ATAT.fastq.gz
-#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_7_1_pf_ATAT.fastq.gz
-#=READSEQ	BarrickLab-Private:genomes/msu_rtsf/6246LAAXX/fastq_sanger_samples/6246LAAXX_8_1_pf_ATAT.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR342/SRR342401/SRR342401.fastq.gz
 SNP	1	.	REL606	48107	T
 DEL	2	.	REL606	69490	85	mediated=BIME
 SNP	3	.	REL606	110618	T

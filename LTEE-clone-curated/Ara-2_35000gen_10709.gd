@@ -1,0 +1,10 @@
+#=GENOME_DIFF	1.0
+#=TITLE	Ara-2_35000gen_10709
+#=AUTHOR	Deatherage, Daniel
+#=TIME	35000
+#=POPULATION	Ara+1
+#=TREATMENT	LTEE
+#=CLONE	B
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	BarrickLab-Private:genomes/genoscope/olivier_2016-04-22/Ara-2_35000gen_10709_R1.gz
+#=READSEQ	BarrickLab-Private:genomes/genoscope/olivier_2016-04-22/Ara-2_35000gen_10709_R2.gz

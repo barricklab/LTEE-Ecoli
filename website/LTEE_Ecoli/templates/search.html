@@ -1,0 +1,7 @@
+<h1>Search by Gene</h1>
+
+<form action="/LTEE_Ecoli/results/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>

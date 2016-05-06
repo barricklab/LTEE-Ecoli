@@ -51,3 +51,6 @@ docs/_build/
 
 # Database
 db.sqlite3
+
+# Project specific locations
+csv

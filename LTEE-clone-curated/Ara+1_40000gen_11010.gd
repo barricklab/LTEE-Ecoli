@@ -1,0 +1,9 @@
+#=GENOME_DIFF	1.0
+#=TITLE	Ara+1_40000gen_11010
+#=TIME	60000
+#=POPULATION	Ara+1
+#=TREATMENT	LTEE
+#=CLONE	C
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	BarrickLab-Private:genomes/genoscope/olivier_2016-04-22/Ara+1_40000gen_11010_R1.fastq.gz
+#=READSEQ	BarrickLab-Private:genomes/genoscope/olivier_2016-04-22/Ara+1_40000gen_11010_R2.fastq.gz

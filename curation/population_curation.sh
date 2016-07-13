@@ -71,6 +71,8 @@ $TREE_UTILS ROOT-ANCESTOR -i 06_phylogeny/tree.tre -o 06_phylogeny/tree.rerooted
 (cd 05_normalized_masked_gd && gdtools COUNT -o ../final_masked.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
 (cd 04_final_normalized_gd && gdtools COUNT -o ../final.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
 
+## Oli
+(cd 06_normalized_masked_no_IS_adjacent_gd &&  gdtools GD2OLI -p -r $REFERENCE_DIR/REL606.gbk -o ../oli.final_masked.no_IS_adjacent.tab `ls *.gd`)
 
 ################### Special for certain populations
 

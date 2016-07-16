@@ -46,6 +46,10 @@ echo $PWD
 
 ## NORMALIZED and MASKED version
 (mkdir -p 03_curated && cd 01_breseq_initial_gd && $BATCH_RUN -p "gd" -0 "gdtools SUBTRACT -o ../tmp1_#d #d ../02_curate_remove/#d `ls ../Anc*.gd` && gdtools UNION -o ../tmp2_#d ../02_curate_add/#d ../tmp1_#d && gdtools REHEADER -o ../03_curated/#d ../00_header/#d ../tmp2_#d && rm ../tmp*_#d")
+(cd 03_curated && gdtools VALIDATE -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
+
+
+
 (mkdir -p 04_final_normalized_gd && cd 03_curated && $BATCH_RUN -p "gd" -0 "gdtools NORMALIZE -a -r $REFERENCE_DIR/REL606.gbk -o ../04_final_normalized_gd/#d #d")
 (mkdir -p 05_normalized_masked_gd && cd 04_final_normalized_gd && $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c type==CON -o ../tmp1_#d #d && gdtools SUBTRACT -o ../tmp2_#d ../tmp1_#d $REFERENCE_DIR/prophage-amplifications.gd && gdtools MASK -v -s -o ../05_normalized_masked_gd/#d ../tmp2_#d $REFERENCE_DIR/REL606.L20.G15.P0.M35.mask.gd && rm ../tmp*_#d")
 (mkdir -p 06_normalized_masked_no_IS_adjacent_gd && cd 05_normalized_masked_gd &&  $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c adjacent!=UNDEFINED -o ../06_normalized_masked_no_IS_adjacent_gd/#d #d")

@@ -22,9 +22,9 @@ experiment in GenomeDiff format.
 ## summary
 
 Output of mutation counts, phylogenetic trees, etc. generated from the curated GenomeDiff
-files using the programs included in Breseq.
+files using the *breseq* pipeline
 
-## curation
+## bin
 
-Scripts used for performing curation and generating summary output files. [More details.](curation/README.md)
+Scripts used for performing curation and generating summary output files.
 

@@ -411,8 +411,8 @@ SNP	401	.	REL606	2213468	C
 SNP	402	.	REL606	2216363	A
 SNP	403	.	REL606	2228166	A
 SNP	404	.	REL606	2232207	C
-INS	405	.	REL606	2247103	C	insert_position=2
-INS	406	.	REL606	2247103	C	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=C
+INS	405	.	REL606	2247103	C	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=C
+INS	406	.	REL606	2247103	C	insert_position=2
 SNP	407	.	REL606	2249327	A
 SNP	408	.	REL606	2255373	A
 SNP	409	.	REL606	2265862	C

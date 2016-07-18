@@ -94,8 +94,8 @@ SNP	83	.	REL606	1477727	C
 SNP	84	.	REL606	1482017	G
 SNP	85	.	REL606	1490815	A
 SNP	86	.	REL606	1523328	A
-INS	87	.	REL606	1529593	T	insert_position=2
-INS	88	.	REL606	1529593	T	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=T
+INS	87	.	REL606	1529593	T	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=T
+INS	88	.	REL606	1529593	T	insert_position=2
 SNP	89	.	REL606	1534824	G
 SNP	90	.	REL606	1547224	A
 INS	91	.	REL606	1570698	CC	insert_position=1

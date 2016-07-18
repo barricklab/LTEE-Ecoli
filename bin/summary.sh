@@ -14,9 +14,6 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${SCRIPT_DIR}/common.sh
 
-cat ${SCRIPT_DIR}/../VERSION > ${SUMMARY_DIR}/VERSIONS
-echo "breseq $GDTOOLS_VERSION" >> ${SUMMARY_DIR}/VERSIONS
-
 #### 0. Clean up all existing results and exit
 
 if [[ $1 == "clean" ]];
@@ -29,6 +26,10 @@ fi
 #### 1. Copy the input GD files to the appropriate directory
 
 mkdir -p $SUMMARY_DIR
+
+## create a file that records versions used to generate output
+cat ${SCRIPT_DIR}/../VERSION > ${SUMMARY_DIR}/VERSIONS
+echo "breseq $GDTOOLS_VERSION" >> ${SUMMARY_DIR}/VERSIONS
 
 mkdir -p $SUMMARY_DIR/Ara-1/01_breseq_initial_gd && cp $LTEE_CLONE_CURATED_DIR/Ara-1* $SUMMARY_DIR/Ara-1/01_breseq_initial_gd
 mkdir -p $SUMMARY_DIR/Ara-2/01_breseq_initial_gd && cp $LTEE_CLONE_CURATED_DIR/Ara-2* $SUMMARY_DIR/Ara-2/01_breseq_initial_gd
@@ -82,14 +83,11 @@ mkdir -p $SUMMARY_DIR/LTEE_all_normalized_masked_no_IS_adjacent_gd
 (cd $SUMMARY_DIR && batch_run.pl -p Ara "cp 06_normalized_masked_no_IS_adjacent_gd/* $SUMMARY_DIR/LTEE_all_normalized_masked_no_IS_adjacent_gd")
 ## count - note cannot use -s option because mutations are removed and that messes up before/within logic
 (cd $SUMMARY_DIR/LTEE_all_normalized_masked_no_IS_adjacent_gd && gdtools COUNT -o $SUMMARY_DIR/count.LTEE.masked.no_IS_adjacent.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
-## generate oli file. Flavor: phylogeny aware and splitting between populations (-p)
-(cd $SUMMARY_DIR/LTEE_all_normalized_masked_no_IS_adjacent_gd &&  gdtools gd2oli -p -r $REFERENCE_DIR/REL606.gbk -o $SUMMARY_DIR/oli.LTEE.masked.no_IS_adjacent.tab `ls *.gd`)
 
 #### MAE FINAL normalized+masked+no_IS_adjacent version
 mkdir -p $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd
 (cd $SUMMARY_DIR && cp $SUMMARY_DIR/MAE/06_normalized_masked_no_IS_adjacent_gd/* $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd)
 (cd $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd && gdtools COUNT -o $SUMMARY_DIR/count.MAE.masked.no_IS_adjacent.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
-(cd $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd &&  gdtools gd2oli -p -r $REFERENCE_DIR/REL606.gbk -o $SUMMARY_DIR/oli.MAE.masked.no_IS_adjacent.tab `ls *.gd`)
 
 ##### USED FOR COVERAGE PLOTTING ACROSS THE GENOME 
 ### --> LTEE264_genome_coverage.R
@@ -156,6 +154,12 @@ cp $SUMMARY_DIR/spectrum_counts/Ara-5-no-alien.500gen.gd $SUMMARY_DIR/spectrum_c
 (cd $SUMMARY_DIR/spectrum_counts && gdtools COUNT -r $REFERENCE_DIR/REL606.gbk -o $SUMMARY_DIR/spectrum_counts.csv `ls *.gd`)
 
 (cd $SUMMARY_DIR && Rscript $SCRIPT_DIR/LTEE264_mutational_spectrum.R)
+
+## Generate Oli style output files. Do last = very slow!
+## Flavor: phylogeny aware and splitting between populations (-p)
+(cd $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd &&  gdtools gd2oli -p -r $REFERENCE_DIR/REL606.gbk -o $SUMMARY_DIR/oli.MAE.masked.no_IS_adjacent.tab `ls *.gd`)
+(cd $SUMMARY_DIR/LTEE_all_normalized_masked_no_IS_adjacent_gd &&  gdtools gd2oli -p -r $REFERENCE_DIR/REL606.gbk -o $SUMMARY_DIR/oli.LTEE.masked.no_IS_adjacent.tab `ls *.gd`)
+
 
 ### EXTRA STUFF for figuring out what the big deletions and amplifications are
 #(cd output/spectrum_counts && gdtools UNION -p -o ../union_of_all.gd `ls *.0.to.50000gen.gd`)

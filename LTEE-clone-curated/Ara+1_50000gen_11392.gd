@@ -20,7 +20,7 @@ SNP	10	.	REL606	393720	A
 SNP	11	.	REL606	430835	T	adjacent=IS186
 SNP	12	.	REL606	433668	T
 DEL	13	.	REL606	474391	9	within=14:1
-INS	14	.	REL606	474391	GTCGCCAGC
+INS	14	.	REL606	474391	GTCGCCAGC	repeat_length=9	repeat_new_copies=2	repeat_ref_copies=1	repeat_seq=GTCGCCAGC
 DEL	15	.	REL606	490481	161226	apply_size_adjust=-4	mediated=IS150	within=17:1
 MOB	16	.	REL606	490481	IS150	1	3	mob_region=REL606:588495-590471
 AMP	17	.	REL606	490481	161226	2	apply_size_adjust=-4	between=IS150	within=16:2

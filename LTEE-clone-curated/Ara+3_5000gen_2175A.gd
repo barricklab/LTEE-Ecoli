@@ -131,35 +131,34 @@ SNP	120	.	REL606	3580892	C
 SNP	121	.	REL606	3625413	G
 DEL	122	.	REL606	3625457	1	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=7	repeat_seq=C
 DEL	123	.	REL606	3714919	234
-SNP	124	.	REL606	3715090	C
-DEL	125	.	REL606	3779760	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=8	repeat_seq=T
-SNP	126	.	REL606	3801275	C
-SNP	127	.	REL606	3878654	A
-INS	128	.	REL606	3891544	GG	repeat_length=1	repeat_new_copies=9	repeat_ref_copies=7	repeat_seq=G
-DEL	129	.	REL606	3894997	6165	mediated=IS150
-INS	130	.	REL606	3922454	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
-SNP	131	.	REL606	3930155	T
-SNP	132	.	REL606	3970125	G
-DEL	133	.	REL606	3987265	1
-INS	134	.	REL606	4009519	A	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=A
-SNP	135	.	REL606	4038033	G
-SNP	136	.	REL606	4100366	C
-INS	137	.	REL606	4101871	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
-INS	138	.	REL606	4111718	A	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=A
-SNP	139	.	REL606	4129180	C
-SNP	140	.	REL606	4137172	T
-INS	141	.	REL606	4179767	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
-SNP	142	.	REL606	4202484	G
-SNP	143	.	REL606	4291477	A
-INS	144	.	REL606	4293177	C
-SNP	145	.	REL606	4297765	T
-SNP	146	.	REL606	4298920	T
-SNP	147	.	REL606	4323735	G
-SNP	148	.	REL606	4362637	A
-DEL	149	.	REL606	4388208	1	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=9	repeat_seq=T
-SNP	150	.	REL606	4408224	T
-SNP	151	.	REL606	4468542	C
-SNP	152	.	REL606	4488978	G
-SNP	153	.	REL606	4532897	G
-SNP	154	.	REL606	4578540	C
-SNP	155	.	REL606	4627830	T
+DEL	124	.	REL606	3779760	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=8	repeat_seq=T
+SNP	125	.	REL606	3801275	C
+SNP	126	.	REL606	3878654	A
+INS	127	.	REL606	3891544	GG	repeat_length=1	repeat_new_copies=9	repeat_ref_copies=7	repeat_seq=G
+DEL	128	.	REL606	3894997	6165	mediated=IS150
+INS	129	.	REL606	3922454	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+SNP	130	.	REL606	3930155	T
+SNP	131	.	REL606	3970125	G
+DEL	132	.	REL606	3987265	1
+INS	133	.	REL606	4009519	A	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=A
+SNP	134	.	REL606	4038033	G
+SNP	135	.	REL606	4100366	C
+INS	136	.	REL606	4101871	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
+INS	137	.	REL606	4111718	A	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=A
+SNP	138	.	REL606	4129180	C
+SNP	139	.	REL606	4137172	T
+INS	140	.	REL606	4179767	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+SNP	141	.	REL606	4202484	G
+SNP	142	.	REL606	4291477	A
+INS	143	.	REL606	4293177	C
+SNP	144	.	REL606	4297765	T
+SNP	145	.	REL606	4298920	T
+SNP	146	.	REL606	4323735	G
+SNP	147	.	REL606	4362637	A
+DEL	148	.	REL606	4388208	1	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=9	repeat_seq=T
+SNP	149	.	REL606	4408224	T
+SNP	150	.	REL606	4468542	C
+SNP	151	.	REL606	4488978	G
+SNP	152	.	REL606	4532897	G
+SNP	153	.	REL606	4578540	C
+SNP	154	.	REL606	4627830	T

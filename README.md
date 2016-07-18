@@ -12,19 +12,20 @@ For related information and data, see also:
 ## LTEE-clone-curated
 
 Lists of mutations in clonal isolates from the long-term evolution experiment
-in GenomeDiff format. This format is described in the 
+in GenomeDiff format. This format is described in the *breseq* documentation.
 
 ## MAE-clone-curated
 
 Lists of mutations in clonal isolates from the mutation accumulation evolution
-experiment in GenomeDiff format.
+experiment in GenomeDiff format. This format is described in the *breseq* documentation.
 
 ## summary
 
 Output of mutation counts, phylogenetic trees, etc. generated from the curated GenomeDiff
-files using the programs included in Breseq.
+files. Counts in these files reflect removing mutations in repetitive regions
+(masked files) and/or mutational hotspots adjacent to IS elements (no_IS_adjacent files).
 
-## curation
+## bin
 
-Scripts used for performing curation and generating summary output files. [More details.](curation/README.md)
+Scripts used for performing curation and generating summary output files.
 

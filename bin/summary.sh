@@ -19,7 +19,7 @@ source ${SCRIPT_DIR}/common.sh
 if [[ $1 == "clean" ]];
 then
   echo "Deleting existing summary files in ${SUMMARY_DIR}"
-  rm -r $SUMMARY_DIR
+  rm -rf $SUMMARY_DIR
   exit 0
 fi
 

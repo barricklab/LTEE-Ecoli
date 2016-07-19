@@ -143,8 +143,8 @@ SNP	133	.	REL606	487591	G
 SNP	134	.	REL606	491519	G
 DEL	135	.	REL606	495382	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=8	repeat_seq=T
 SNP	136	.	REL606	499085	C
-INS	137	.	REL606	499245	G	insert_position=2
-INS	138	.	REL606	499245	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	137	.	REL606	499245	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	138	.	REL606	499245	G	insert_position=2
 INS	139	.	REL606	501052	T	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=T
 SNP	140	.	REL606	503150	A
 SNP	141	.	REL606	506968	A

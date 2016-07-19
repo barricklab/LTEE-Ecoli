@@ -30,8 +30,8 @@ MOB	20	.	REL606	1462251	IS150	-1	3
 INS	21	.	REL606	1624013	A	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=A
 DEL	22	.	REL606	1633388	6
 SNP	23	.	REL606	1734106	C
-DEL	24	.	REL606	1734709	13712	apply_size_adjust=768	mediated=IS1	phylogeny_id=1	within=26:2
-DEL	25	.	REL606	1734709	13712	apply_size_adjust=768	mediated=IS1	within=26:1
+DEL	24	.	REL606	1734709	13712	apply_size_adjust=768	mediated=IS1	within=26:1
+DEL	25	.	REL606	1734709	13712	apply_size_adjust=768	between=IS1	mediated=IS1	phylogeny_id=1	within=26:2
 AMP	26	.	REL606	1734709	13712	3	mediated=IS1	mediated_strand=1
 SNP	27	.	REL606	1756846	T
 SNP	28	.	REL606	2016830	A

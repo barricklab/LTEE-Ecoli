@@ -149,9 +149,9 @@ INS	139	.	REL606	314681	A
 SNP	140	.	REL606	318026	A
 SNP	141	.	REL606	326134	T
 SNP	142	.	REL606	327295	G
-INS	143	.	REL606	327471	G	insert_position=2
-INS	144	.	REL606	327471	G	insert_position=3
-INS	145	.	REL606	327471	G	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=G
+INS	143	.	REL606	327471	G	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=G
+INS	144	.	REL606	327471	G	insert_position=2
+INS	145	.	REL606	327471	G	insert_position=3
 SNP	146	.	REL606	331856	T
 SNP	147	.	REL606	335549	G
 SNP	148	.	REL606	338804	A
@@ -203,8 +203,8 @@ SNP	193	.	REL606	430852	T	adjacent=IS186
 SNP	194	.	REL606	439082	T
 DEL	195	.	REL606	440338	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=8	repeat_seq=T
 SNP	196	.	REL606	444489	T
-INS	197	.	REL606	444809	G	insert_position=2
-INS	198	.	REL606	444809	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	197	.	REL606	444809	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	198	.	REL606	444809	G	insert_position=2
 SNP	199	.	REL606	445095	A
 SNP	200	.	REL606	448006	C
 SNP	201	.	REL606	451211	T
@@ -332,8 +332,8 @@ SNP	322	.	REL606	785932	G
 SNP	323	.	REL606	787728	G
 SNP	324	.	REL606	790716	T
 SNP	325	.	REL606	791712	A
-INS	326	.	REL606	794414	GGG	insert_position=2
-INS	327	.	REL606	794414	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	326	.	REL606	794414	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	327	.	REL606	794414	GGG	insert_position=2
 DEL	328	.	REL606	794720	1	phylogeny_id=2	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=7	repeat_seq=G
 INS	329	.	REL606	794720	GG	insert_position=1
 SNP	330	.	REL606	794721	G
@@ -384,10 +384,10 @@ DEL	374	.	REL606	889880	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=
 DEL	375	.	REL606	894876	1	phylogeny_id=1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=8	repeat_seq=T
 SNP	376	.	REL606	894888	A
 SNP	377	.	REL606	895030	T
-INS	378	.	REL606	901257	C	insert_position=2
-INS	379	.	REL606	901257	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
-INS	380	.	REL606	901828	G	insert_position=2	phylogeny_id=1
-INS	381	.	REL606	901828	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	378	.	REL606	901257	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
+INS	379	.	REL606	901257	C	insert_position=2
+INS	380	.	REL606	901828	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
+INS	381	.	REL606	901828	G	insert_position=2	phylogeny_id=1
 SNP	382	.	REL606	902559	G
 SNP	383	.	REL606	907128	G
 INS	384	.	REL606	917189	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
@@ -685,8 +685,8 @@ SNP	675	.	REL606	1882202	A
 DEL	676	.	REL606	1883366	1	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=7	repeat_seq=T
 SNP	677	.	REL606	1887501	C
 SNP	678	.	REL606	1889783	G
-INS	679	.	REL606	1895222	C	insert_position=2	phylogeny_id=1
-INS	680	.	REL606	1895222	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	679	.	REL606	1895222	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	680	.	REL606	1895222	C	insert_position=2	phylogeny_id=1
 SNP	681	.	REL606	1900146	A
 SNP	682	.	REL606	1902621	C
 SNP	683	.	REL606	1903600	C
@@ -718,8 +718,8 @@ SNP	708	.	REL606	1959502	C
 SNP	709	.	REL606	1966411	C
 SNP	710	.	REL606	1966834	C
 SNP	711	.	REL606	1967507	C
-INS	712	.	REL606	1977653	C	insert_position=2
-INS	713	.	REL606	1977653	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
+INS	712	.	REL606	1977653	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
+INS	713	.	REL606	1977653	C	insert_position=2
 SNP	714	.	REL606	1985631	A
 SNP	715	.	REL606	1986419	T
 SNP	716	.	REL606	1987983	A
@@ -759,8 +759,8 @@ SNP	749	.	REL606	2110509	C
 SNP	750	.	REL606	2111867	G
 SNP	751	.	REL606	2113322	G
 INS	752	.	REL606	2115782	T	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=T
-INS	753	.	REL606	2116047	C	insert_position=2
-INS	754	.	REL606	2116047	C	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=C
+INS	753	.	REL606	2116047	C	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=C
+INS	754	.	REL606	2116047	C	insert_position=2
 SNP	755	.	REL606	2116119	G
 SNP	756	.	REL606	2118076	T
 SNP	757	.	REL606	2119564	T
@@ -771,16 +771,16 @@ DEL	761	.	REL606	2131466	1	repeat_length=1	repeat_new_copies=8	repeat_ref_copies
 SNP	762	.	REL606	2138615	T
 SNP	763	.	REL606	2139117	A
 SNP	764	.	REL606	2140562	C
-INS	765	.	REL606	2149197	C	insert_position=2
-INS	766	.	REL606	2149197	C
+INS	765	.	REL606	2149197	C
+INS	766	.	REL606	2149197	C	insert_position=2
 SNP	767	.	REL606	2149198	C
 SNP	768	.	REL606	2149735	A
 INS	769	.	REL606	2153825	G	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=G
 SNP	770	.	REL606	2157595	G
 SNP	771	.	REL606	2159326	A
 SNP	772	.	REL606	2161015	A
-INS	773	.	REL606	2161669	C	insert_position=2
-INS	774	.	REL606	2161669	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	773	.	REL606	2161669	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	774	.	REL606	2161669	C	insert_position=2
 SNP	775	.	REL606	2163736	A
 SNP	776	.	REL606	2166585	G
 SNP	777	.	REL606	2167350	T
@@ -907,9 +907,9 @@ SNP	897	.	REL606	2438845	T
 SNP	898	.	REL606	2441207	A
 SNP	899	.	REL606	2445090	A
 DEL	900	.	REL606	2445097	1	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=7	repeat_seq=C
-INS	901	.	REL606	2445097	C	insert_position=2
-INS	902	.	REL606	2445097	C	insert_position=3
-INS	903	.	REL606	2445097	CC	repeat_length=1	repeat_new_copies=9	repeat_ref_copies=7	repeat_seq=C
+INS	901	.	REL606	2445097	CC	repeat_length=1	repeat_new_copies=9	repeat_ref_copies=7	repeat_seq=C
+INS	902	.	REL606	2445097	C	insert_position=2
+INS	903	.	REL606	2445097	C	insert_position=3
 SNP	904	.	REL606	2446452	C
 SNP	905	.	REL606	2446985	G
 SNP	906	.	REL606	2448098	C
@@ -965,11 +965,11 @@ SNP	955	.	REL606	2599177	C
 SNP	956	.	REL606	2599282	C
 SNP	957	.	REL606	2600419	A
 SNP	958	.	REL606	2601491	T
-INS	959	.	REL606	2602856	C	insert_position=2
-INS	960	.	REL606	2602856	C	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=C
+INS	959	.	REL606	2602856	C	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=C
+INS	960	.	REL606	2602856	C	insert_position=2
 SNP	961	.	REL606	2603270	A
-INS	962	.	REL606	2611165	C	insert_position=2
-INS	963	.	REL606	2611165	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
+INS	962	.	REL606	2611165	C	repeat_length=1	repeat_new_copies=6	repeat_ref_copies=5	repeat_seq=C
+INS	963	.	REL606	2611165	C	insert_position=2
 SNP	964	.	REL606	2612223	A
 SNP	965	.	REL606	2612628	C
 SNP	966	.	REL606	2615244	A
@@ -1071,8 +1071,8 @@ INS	1061	.	REL606	2880036	C
 INS	1062	.	REL606	2885435	G	insert_position=1	phylogeny_id=1
 INS	1063	.	REL606	2885435	G	insert_position=2	phylogeny_id=1
 INS	1064	.	REL606	2885510	CC	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=6	repeat_seq=C
-INS	1065	.	REL606	2887059	G	insert_position=2
-INS	1066	.	REL606	2887059	G	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=G
+INS	1065	.	REL606	2887059	G	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=G
+INS	1066	.	REL606	2887059	G	insert_position=2
 SNP	1067	.	REL606	2887835	G
 SNP	1068	.	REL606	2892689	A
 SNP	1069	.	REL606	2894299	T
@@ -1151,8 +1151,8 @@ SNP	1141	.	REL606	3031852	T
 SNP	1142	.	REL606	3033139	A
 SNP	1143	.	REL606	3034721	A
 DEL	1144	.	REL606	3035291	1	repeat_length=1	repeat_new_copies=5	repeat_ref_copies=6	repeat_seq=C
-INS	1145	.	REL606	3035291	CC	insert_position=2
-INS	1146	.	REL606	3035291	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	1145	.	REL606	3035291	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	1146	.	REL606	3035291	CC	insert_position=2
 SNP	1147	.	REL606	3038156	T
 SNP	1148	.	REL606	3040066	C
 SNP	1149	.	REL606	3041502	C
@@ -1336,8 +1336,8 @@ SNP	1326	.	REL606	3590956	C
 SNP	1327	.	REL606	3593531	C
 SNP	1328	.	REL606	3596757	A
 DEL	1329	.	REL606	3598035	1	repeat_length=1	repeat_new_copies=5	repeat_ref_copies=6	repeat_seq=C
-INS	1330	.	REL606	3598035	C	insert_position=2
-INS	1331	.	REL606	3598035	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	1330	.	REL606	3598035	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
+INS	1331	.	REL606	3598035	C	insert_position=2
 SNP	1332	.	REL606	3600872	A
 SNP	1333	.	REL606	3602360	A
 SNP	1334	.	REL606	3603217	G

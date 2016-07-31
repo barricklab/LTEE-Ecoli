@@ -138,8 +138,8 @@ DEL	127	.	REL606	3779760	1	repeat_length=1	repeat_new_copies=7	repeat_ref_copies
 SNP	128	.	REL606	3801275	C
 SNP	129	.	REL606	3878654	A
 SNP	130	.	REL606	3891451	T
-INS	131	.	REL606	3891544	G	insert_position=2	phylogeny_id=0
-INS	132	.	REL606	3891544	GG	repeat_length=1	repeat_new_copies=9	repeat_ref_copies=7	repeat_seq=G
+INS	131	.	REL606	3891544	GG	repeat_length=1	repeat_new_copies=9	repeat_ref_copies=7	repeat_seq=G
+INS	132	.	REL606	3891544	G	insert_position=2	phylogeny_id=0
 DEL	133	.	REL606	3894997	6165	mediated=IS150
 INS	134	.	REL606	3922454	C	repeat_length=1	repeat_new_copies=7	repeat_ref_copies=6	repeat_seq=C
 SNP	135	.	REL606	3930155	T

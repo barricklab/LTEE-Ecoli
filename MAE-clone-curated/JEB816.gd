@@ -4,6 +4,7 @@
 #=POPULATION	10
 #=TREATMENT	MAE
 #=CLONE	A
+#=MUTATOR_CLASS	non-mutator
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR342/SRR342421/SRR342421.fastq.gz
 SNP	1	.	REL606	20156	G

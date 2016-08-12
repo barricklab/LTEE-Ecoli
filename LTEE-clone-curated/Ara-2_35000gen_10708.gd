@@ -5,7 +5,7 @@
 #=POPULATION	Ara+1
 #=TREATMENT	LTEE
 #=CLONE	A
-#=MUTATOR_CLASS	point-mutator
+#=MUTATOR_STATUS	point-mutator
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
 #=READSEQ	BarrickLab-Private:genomes/genoscope/olivier_2016-04-22/Ara-2_35000gen_10708_R1.gz
 #=READSEQ	BarrickLab-Private:genomes/genoscope/olivier_2016-04-22/Ara-2_35000gen_10708_R2.gz

@@ -138,6 +138,7 @@ my @header_list =  ('treatment',
 					'time',
 					'strain', 
 					'clone', 
+					'mutator_status', 
 					'type', 
 					'start_position',
 					'end_position', 
@@ -145,12 +146,13 @@ my @header_list =  ('treatment',
 					'html_position', 
 					'html_mutation', 
 					'html_mutation_annotation',
-	               	'gene_list', 
+					'gene_list', 
 					'gene_name', 
 					'html_gene_name', 
 					'gene_product', 
 					'html_gene_product',
 					'locus_tag',
+					'mutation_category',
 					'snp_type'
 					);
 
@@ -176,6 +178,7 @@ foreach my $f (@d)
 				$gd_file->{header}->{TIME},
 				$gd_file->{header}->{STRAIN},
 				$gd_file->{header}->{CLONE},
+				$gd_file->{header}->{MUTATOR_STATUS},
 				$mut->{type},
 				$mut->{start_position},
 				$mut->{end_position},
@@ -189,7 +192,8 @@ foreach my $f (@d)
 				$mut->{gene_product},
 				$mut->{html_gene_product},
 				$mut->{locus_tag},
-				$mut->{snp_type}				
+				$mut->{mutation_category},
+				$mut->{snp_type}
 		);
 		
 		@this_list = map { "\"$_\"" } @this_list;

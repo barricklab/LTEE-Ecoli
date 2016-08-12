@@ -5,7 +5,7 @@
 #=POPULATION	Ara+3
 #=TREATMENT	LTEE
 #=CLONE	A
-#=MUTATOR_CLASS	point-mutator
+#=MUTATOR_STATUS	point-mutator
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR259/006/SRR2591036/SRR2591036_1.fastq.gz
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR259/006/SRR2591036/SRR2591036_2.fastq.gz

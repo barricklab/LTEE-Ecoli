@@ -1,12 +1,11 @@
 ##Set our version
-LTEE_ECOLI_VERSION="1"
+LTEE_ECOLI_VERSION="1.1"
 
 ##Check gdtools version
-
-## For database VERSION 1
-## * GD files are compatible with breseq v0.28.0+
-##   BUT NOTE: stricted checking in v0.28.1 makes
-##   these files fail gdtools VALID and APPLY
+## Compatibility table:
+## Database    breseq/gdtools
+## v1.0        v0.28.0
+## v1.1        v0.28.1
 
 ##Function from http://stackoverflow.com/questions/17129050
 vercomp () {
@@ -41,7 +40,7 @@ vercomp () {
 }
 
 
-GDTOOLS_VERSION_REQUIRED="0.28.0"
+GDTOOLS_VERSION_REQUIRED="0.28.1"
 
 #capture and strip beginning text
 GDTOOLS_VERSION="$(gdtools --version)"

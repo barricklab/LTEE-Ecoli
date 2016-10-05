@@ -5,6 +5,7 @@
 #=POPULATION	Ara-3
 #=TREATMENT	LTEE
 #=CLONE	B
+#=MUTATOR_STATUS	non-mutator
 #=REFSEQ	BarrickLab-Public:release/reference/REL606.6.gbk
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR098/SRR098280/SRR098280.fastq.gz
 SNP	1	.	REL606	9972	G

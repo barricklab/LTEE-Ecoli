@@ -5,6 +5,7 @@
 #=POPULATION	Ara-3
 #=TREATMENT	LTEE
 #=CLONE	D
+#=MUTATOR_STATUS	IS-mutator
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR098/SRR098030/SRR098030.fastq.gz
 SNP	1	.	REL606	9972	G

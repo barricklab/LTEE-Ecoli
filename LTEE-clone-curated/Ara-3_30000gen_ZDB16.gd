@@ -5,6 +5,7 @@
 #=POPULATION	Ara-3
 #=TREATMENT	LTEE
 #=CLONE	A
+#=MUTATOR_STATUS	non-mutator
 #=REFSEQ	BarrickLab-Public:release/reference/REL606.6.gbk
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR098/SRR098031/SRR098031.fastq.gz
 DEL	1	.	REL606	16989	1	adjacent=IS150	within=2:2

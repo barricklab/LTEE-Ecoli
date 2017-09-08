@@ -1,7 +1,10 @@
-<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+
+# R extension
+*.RData
+*.Rhistory
 
 # C extensions
 *.so

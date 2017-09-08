@@ -12,6 +12,8 @@
 ## * summary
 ##     only performs steps needed for generating summary files
 ##     does not perform all steps normally used in curation
+## * nomask
+##     Performs all steps but with no masking of mutations
 ##
 ## What's in each directory??
 ##
@@ -46,6 +48,8 @@ fi
 
 echo "Running in working directory: ${REFERENCE_DIR}"
 
+## Masking used in Release 1.0
+
 if [ ! -f "${REFERENCE_DIR}/REL606.L20.G15.P0.M35.mask.gd" ];
 then
   #breseq CONVERT-REFERENCE -f fasta -o $REFERENCE_DIR/REL606.fna $REFERENCE_DIR/REL606.gbk
@@ -58,6 +62,14 @@ then
   echo "MASK	.	.	REL606	2103889	31	note=manually added" >> $REFERENCE_DIR/REL606.L20.G15.P0.M35.mask.gd
 fi
 
+MASK_GD_FILE="$REFERENCE_DIR/REL606.L20.G15.P0.M35.mask.gd"
+
+## With option nomask we use an empty masking file instead (used for Ara-3 tree)
+
+if [[ $1 == "nomask" ]];
+then
+  MASK_GD_FILE="$REFERENCE_DIR/empty.mask.gd"
+fi
 
 ###### POPULATION SETUP
 
@@ -122,7 +134,7 @@ else
   (cp -r 03_curated 04_final_normalized_gd)
 fi
 
-(mkdir -p 05_normalized_masked_gd && cd 04_final_normalized_gd && $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c type==CON -o ../tmp1_#d #d && gdtools SUBTRACT -o ../tmp2_#d ../tmp1_#d $REFERENCE_DIR/prophage-amplifications.gd && gdtools MASK -v -s -o ../05_normalized_masked_gd/#d ../tmp2_#d $REFERENCE_DIR/REL606.L20.G15.P0.M35.mask.gd && rm ../tmp*_#d")
+(mkdir -p 05_normalized_masked_gd && cd 04_final_normalized_gd && $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c type==CON -o ../tmp1_#d #d && gdtools SUBTRACT -o ../tmp2_#d ../tmp1_#d $REFERENCE_DIR/prophage-amplifications.gd && gdtools MASK -v -s -o ../05_normalized_masked_gd/#d ../tmp2_#d $MASK_GD_FILE && rm ../tmp*_#d")
 (mkdir -p 06_normalized_masked_no_IS_adjacent_gd && cd 05_normalized_masked_gd &&  $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c adjacent!=UNDEFINED -o ../06_normalized_masked_no_IS_adjacent_gd/#d #d")
 
 

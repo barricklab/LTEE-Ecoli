@@ -1,0 +1,1 @@
+#=GENOME_DIFF	1.0

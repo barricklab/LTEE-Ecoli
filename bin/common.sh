@@ -6,6 +6,7 @@ LTEE_ECOLI_VERSION="1.1"
 ## Database    breseq/gdtools
 ## v1.0        v0.28.0
 ## v1.1        v0.28.1
+## v2.0        v0.31.1
 
 ##Function from http://stackoverflow.com/questions/17129050
 vercomp () {
@@ -40,7 +41,7 @@ vercomp () {
 }
 
 
-GDTOOLS_VERSION_REQUIRED="0.28.1"
+GDTOOLS_VERSION_REQUIRED="0.31.1"
 
 #capture and strip beginning text
 GDTOOLS_VERSION="$(gdtools --version)"

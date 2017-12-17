@@ -64,11 +64,15 @@ fi
 
 MASK_GD_FILE="$REFERENCE_DIR/REL606.L20.G15.P0.M35.mask.gd"
 
-## With option nomask we use an empty masking file instead (used for Ara-3 tree)
+## With option nomask we use an empty masking file instead
+## It DOES still mask the hypervariable tandem 4-bp repeat 
+## This option was used for constructing the Ara-3 tree
 
 if [[ $1 == "nomask" ]];
 then
   MASK_GD_FILE="$REFERENCE_DIR/empty.mask.gd"
+  echo "#=GENOME_DIFF	1.0" > $MASK_GD_FILE
+  echo "MASK	.	.	REL606	2103889	31	note=manually added" >> $MASK_GD_FILE
 fi
 
 ###### POPULATION SETUP

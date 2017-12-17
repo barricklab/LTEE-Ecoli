@@ -62,4 +62,6 @@ csv
 summary/*
 csv/*
 curation/*
+fasta/*
 *-annotated/*
+shiny/LTEE-clone-curated.tsv

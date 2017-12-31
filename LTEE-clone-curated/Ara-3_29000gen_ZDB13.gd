@@ -5,10 +5,8 @@
 #=TREATMENT	LTEE
 #=CLONE	X
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
-#=READSEQ	BarrickLab-Private:genomes/utexas_gsaf/Project_JA13577/EQ_8_AGTTCC_L005_R1_001.fastq.gz
-#=READSEQ	BarrickLab-Private:genomes/utexas_gsaf/Project_JA13577/EQ_8_AGTTCC_L005_R2_001.fastq.gz
-#=READSEQ	BarrickLab-Private:genomes/utexas_gsaf/Project_JA13577/EQ_8_AGTTCC_L006_R1_001.fastq.gz
-#=READSEQ	BarrickLab-Private:genomes/utexas_gsaf/Project_JA13577/EQ_8_AGTTCC_L006_R2_001.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR617/000/SRR6178300/SRR6178300_1.fastq.gz
+#=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR617/000/SRR6178300/SRR6178300_2.fastq.gz
 SNP	1	.	REL606	9972	G
 MOB	2	.	REL606	16990	IS150	1	3
 SNP	3	.	REL606	81158	C

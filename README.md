@@ -1,7 +1,7 @@
 # LTEE-Ecoli
 Genomics resources for the long-term evolution experiment with *Escherichia coli*.
-
-### See the [Wiki documentation](https://github.com/barricklab/LTEE-Ecoli/wiki) for examples of using these files.
+* **Quickstart:** Use this [Web Interface](http://barricklab.org/shiny/LTEE-Ecoli/) to search for mutations in different strains online.
+* See the [Wiki documentation](https://github.com/barricklab/LTEE-Ecoli/wiki) for a description of how to download and use these files.
 
 For related information and data, see also:
 * [Lenski LTEE Project Site](http://myxo.css.msu.edu/ecoli)

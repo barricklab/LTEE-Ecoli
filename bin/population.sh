@@ -1,6 +1,6 @@
 #!/bin/bash
 
-###### PER-POPULATION SETUP 
+###### PER-POPULATION SETUP
 
 ## Subcommands:
 ##
@@ -65,7 +65,7 @@ fi
 MASK_GD_FILE="$REFERENCE_DIR/REL606.L20.G15.P0.M35.mask.gd"
 
 ## With option nomask we use an empty masking file instead
-## It DOES still mask the hypervariable tandem 4-bp repeat 
+## It DOES still mask the hypervariable tandem 4-bp repeat
 ## This option was used for constructing the Ara-3 tree
 
 if [[ $1 == "nomask" ]];
@@ -90,17 +90,20 @@ fi
 
 if [[ "${PWD##*/}" == Ara-* ]];
 then
-  cp $LTEE_CLONE_CURATED_DIR/Anc-_0gen_REL606.gd .
+  ANCESTOR_FILE_NAME="Anc-_0gen_REL606.gd"
+  cp $LTEE_CLONE_CURATED_DIR/$ANCESTOR_FILE_NAME .
 fi
 
 if [[ "${PWD##*/}" == Ara+* ]];
 then
-  cp $LTEE_CLONE_CURATED_DIR/Anc+_0gen_REL607.gd .
+  ANCESTOR_FILE_NAME="Anc+_0gen_REL607.gd"
+  cp $LTEE_CLONE_CURATED_DIR/$ANCESTOR_FILE_NAME .
 fi
 
 if [[ "${PWD##*/}" == MAE* ]];
 then
-  cp $MAE_CLONE_CURATED_DIR/Anc+_REL1207.gd .
+  ANCESTOR_FILE_NAME="Anc+_REL1207.gd"
+  cp $MAE_CLONE_CURATED_DIR/$ANCESTOR_FILE_NAME .
 fi
 
 
@@ -126,10 +129,12 @@ echo $PWD
 (cd 02_curate_remove && gdtools VALIDATE -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
 (cd 02_curate_add && gdtools VALIDATE -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
 
-## NORMALIZED and MASKED version
-(mkdir -p 03_curated && cd 01_breseq_initial_gd && $BATCH_RUN -p "gd" -0 "gdtools SUBTRACT -o ../tmp1_#d #d ../02_curate_remove/#d `ls ../Anc*.gd` && gdtools UNION -o ../tmp2_#d ../02_curate_add/#d ../tmp1_#d && gdtools REHEADER -o ../03_curated/#d ../00_header/#d ../tmp2_#d && rm ../tmp*_#d")
+## CURATED version
+(mkdir -p 03_curated && cd 01_breseq_initial_gd && $BATCH_RUN -p "gd" -0 "gdtools SUBTRACT -o ../tmp1_#d #d ../02_curate_remove/#d && gdtools UNION -o ../tmp2_#d ../02_curate_add/#d ../tmp1_#d && gdtools REHEADER -o ../03_curated/#d ../00_header/#d ../tmp2_#d && rm ../tmp*_#d")
 (cd 03_curated && gdtools VALIDATE -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
 
+
+## MASKED VERSION
 ## In summary mode we are already using normalized (but not masked) files, so just copy -- since this is a very slow step
 if [[ $1 != "summary" ]];
 then
@@ -138,7 +143,8 @@ else
   (cp -r 03_curated 04_final_normalized_gd)
 fi
 
-(mkdir -p 05_normalized_masked_gd && cd 04_final_normalized_gd && $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c type==CON -o ../tmp1_#d #d && gdtools SUBTRACT -o ../tmp2_#d ../tmp1_#d $REFERENCE_DIR/prophage-amplifications.gd && gdtools MASK -v -s -o ../05_normalized_masked_gd/#d ../tmp2_#d $MASK_GD_FILE && rm ../tmp*_#d")
+## NORMALIZED and MASKED version
+(mkdir -p 05_normalized_masked_gd && cd 04_final_normalized_gd && $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c type==CON -o ../tmp1_#d #d && gdtools SUBTRACT -o ../tmp2_#d ../tmp1_#d $REFERENCE_DIR/prophage-amplifications.gd ../$ANCESTOR_FILE_NAME && gdtools MASK -v -s -o ../05_normalized_masked_gd/#d ../tmp2_#d $MASK_GD_FILE && rm ../tmp*_#d")
 (mkdir -p 06_normalized_masked_no_IS_adjacent_gd && cd 05_normalized_masked_gd &&  $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c adjacent!=UNDEFINED -o ../06_normalized_masked_no_IS_adjacent_gd/#d #d")
 
 
@@ -171,13 +177,13 @@ then
   (cd 01_breseq_initial_gd && gdtools COUNT -o ../initial.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
   (cd 05_normalized_masked_gd && gdtools COUNT -o ../final_masked.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
   (cd 04_final_normalized_gd && gdtools COUNT -o ../final.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
-fi 
+fi
 
 ## Oli
 if [[ $1 != "summary" ]];
 then
   (cd 06_normalized_masked_no_IS_adjacent_gd &&  gdtools GD2OLI -p -r $REFERENCE_DIR/REL606.gbk -o ../oli.final_masked.no_IS_adjacent.tab `ls *.gd`)
-fi 
+fi
 ################### Special for certain populations
 
 ### Based on SNPs only

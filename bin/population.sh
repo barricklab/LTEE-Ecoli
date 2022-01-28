@@ -157,6 +157,16 @@ fi
 ##PHYLOGENY CHECK (based on final_normalized)
 (mkdir -p 07_phylogeny && cd 05_normalized_masked_gd && gdtools PHYLOGENY -p -a -o ../07_phylogeny/tree -r $REFERENCE_DIR/REL606.gbk `ls ../Anc*.gd` `ls *.gd`)
 $TREE_UTILS ROOT-ANCESTOR -i 07_phylogeny/tree.tre -o 07_phylogeny/tree.rerooted.tre
+$TREE_UTILS SCALE-PHYLIP -i 07_phylogeny/tree.rerooted.tre -o 07_phylogeny/tree.rerooted.rescaled.tre -p 07_phylogeny/tree.genotypes.txt
+
+#Rescale branch lengths to mutations
+PHYLOGENYSITES = awk 'NR==2{print length+1}' 07_phylogeny/tree.genotypes.txt
+PHYLOGENYSITES=`expr $PHYLOGENYSITES - 11`
+
+#SNP phylogeny
+if 1;
+then
+fi
 
 if [[ $1 != "summary" ]];
 then

@@ -55,10 +55,9 @@ mkdir -p $SUMMARY_DIR/MAE/01_breseq_initial_gd && cp $MAE_CLONE_CURATED_DIR/JEB*
 
 #### 3. Generate summary files that include info from all populations
 
-
 ##### Copy over all phylogenetic trees
 mkdir -p $SUMMARY_DIR/LTEE_phylogenetic_trees
-(cd $SUMMARY_DIR && batch_run.pl -p Ara "cp 07_phylogeny/tree.rerooted.tre $SUMMARY_DIR/LTEE_phylogenetic_trees/#d.tre")
+(cd $SUMMARY_DIR && batch_run.pl -p Ara "cp 07_phylogeny/tree.rerooted.rescaled.tre $SUMMARY_DIR/LTEE_phylogenetic_trees/#d.tre")
 
 
 ###### USED FOR GENOME SIZE
@@ -89,7 +88,7 @@ mkdir -p $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd
 (cd $SUMMARY_DIR && cp $SUMMARY_DIR/MAE/06_normalized_masked_no_IS_adjacent_gd/* $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd)
 (cd $SUMMARY_DIR/MAE_all_normalized_masked_no_IS_adjacent_gd && gdtools COUNT -o $SUMMARY_DIR/count.MAE.masked.no_IS_adjacent.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
 
-##### USED FOR COVERAGE PLOTTING ACROSS THE GENOME 
+##### USED FOR COVERAGE PLOTTING ACROSS THE GENOME
 ### --> LTEE264_genome_coverage.R
 (cd $SUMMARY_DIR && gdtools gd2cov -o gd2cov -r $REFERENCE_DIR/REL606.gbk `ls LTEE_all_normalized_masked_gd/*.gd`)
 
@@ -165,12 +164,12 @@ cp $SUMMARY_DIR/spectrum_counts/Ara-5-no-alien.500gen.gd $SUMMARY_DIR/spectrum_c
 #(cd output/spectrum_counts && gdtools UNION -p -o ../union_of_all.gd `ls *.0.to.50000gen.gd`)
 #gdtools COUNT -r REL606.gbk -o union_of_all.count.csv union_of_all.gd
 
-#gdtools REMOVE -o union_of_all_deletions.gd -c "type!=DEL" union_of_all.gd 
-#gdtools REMOVE -o union_of_all_big_deletions.gd -c "size<200" union_of_all_deletions.gd 
+#gdtools REMOVE -o union_of_all_deletions.gd -c "type!=DEL" union_of_all.gd
+#gdtools REMOVE -o union_of_all_big_deletions.gd -c "size<200" union_of_all_deletions.gd
 #gdtools ANNOTATE -o union_of_all_big_deletions.html -r REL606.gbk union_of_all_big_deletions.gd
 
-#gdtools REMOVE -o union_of_all_amplifications.gd -c "type!=AMP" union_of_all.gd 
-#gdtools REMOVE -o union_of_all_big_amplifications.gd -c "size<1000" union_of_all_amplifications.gd 
+#gdtools REMOVE -o union_of_all_amplifications.gd -c "type!=AMP" union_of_all.gd
+#gdtools REMOVE -o union_of_all_big_amplifications.gd -c "size<1000" union_of_all_amplifications.gd
 #gdtools ANNOTATE -o union_of_all_big_amplifications.html -r REL606.gbk union_of_all_big_amplifications.gd
 
 #(cd spectrum_counts && gdtools UNION -p -o ../union_of_all.nonmutators.gd Ara-5.0.to.50000gen.gd Ara-6.0.to.50000gen.gd Ara+2.0.to.50000gen.gd Ara+4.0.to.50000gen.gd Ara+5.0.to.50000gen.gd)

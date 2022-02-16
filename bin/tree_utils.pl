@@ -276,7 +276,7 @@ sub do_scale_phylip
 		my $new_branch_length = $node->branch_length;
 		print "Original branch length: " . $new_branch_length . "\n";
 		$new_branch_length = $node->branch_length * $l;
-		print "Multiplied braach length: " . $new_branch_length . "\n";
+		print "Multiplied branch length: " . $new_branch_length . "\n";
 		$new_branch_length = sprintf("%.1f", $new_branch_length);
 		print "New branch length: " . $new_branch_length . "\n";
 		$node->branch_length( $new_branch_length );

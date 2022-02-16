@@ -1,0 +1,8 @@
+name: ltee-ecoli
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=2.7
+  - breseq=0.36.1
+  - perl-bioperl-core=1.7.8

@@ -1,0 +1,11 @@
+#=GENOME_DIFF	1.0
+#=TITLE	Ara-3_19500gen_REL7722
+#=TIME	19500
+#=POPULATION	Ara-3
+#=TREATMENT	LTEE
+#=STUDY_DOI	10.1038/nature24287
+#=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
+#=READSEQ	http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR618/005/SRR6184825/SRR6184825_1.fastq.gz
+#=READSEQ	http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR618/005/SRR6184825/SRR6184825_2.fastq.gz
+#=READSEQ	http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR618/006/SRR6184826/SRR6184826_1.fastq.gz
+#=READSEQ	http://ftp.sra.ebi.ac.uk/vol1/fastq/SRR618/006/SRR6184826/SRR6184826_2.fastq.gz

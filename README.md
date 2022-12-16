@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7447457.svg)](https://doi.org/10.5281/zenodo.7447457)
+
 # LTEE-Ecoli
 Genomics resources for the long-term evolution experiment with *Escherichia coli*.
 * **Quickstart:** Use this [Web Interface](http://barricklab.org/shiny/LTEE-Ecoli/) to search for mutations in different strains online.

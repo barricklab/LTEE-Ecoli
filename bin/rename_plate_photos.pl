@@ -10,7 +10,7 @@ rename_plate_photos.pl
 
 =head1 SYNOPSIS
 
-Usage: rename_plate_photos.pl -i raw -o renamed -p "075500gen_#s_#p_24h_bottom_#i"
+Usage: rename_plate_photos.pl -i raw -o renamed -s LTEE-INTERSPERSED -f "075500gen_#s_#p_24h_bottom_#i"
 
 =head1 DESCRIPTION
 
@@ -40,7 +40,7 @@ Suffix to add to all files.
 
 =item B<-s,--samples> <string>
 
-Names of samples or keyword for preset.
+Names of samples (provide option multiple times) or keyword for preset.
 Valid presets:  LTEE-INTERSPERSED, LTEE-INTERSPERSED+ANCESTORS, LTEE-ORDERED, LTEE-ORDERED+ANCESTORS.
 
 Interspersed: A–1, A+1, A–2, A+2, A–3, A+3, A–4, A+4, A–5, A+5, A–6, A+6 
@@ -52,7 +52,7 @@ Ord+Anc: REL606, A–1, A–2, A–3, A–4, A–5, A–6, REL607, A+1, A+2, A+3
 
 =item B<-p,--plates]> <string>
 
-List of types of plates. Default = [MG, MA, TA]
+List of types of plates (provide multiple times). Default = [MG, MA, TA]
 
 =back
 
@@ -90,7 +90,7 @@ GetOptions(
 	'help|h' => \$help, 'man' => \$man,
 	'input|i=s' => \$input,
 	'output|o=s' => \$output,
-	'format|f=s' => \$prefix,
+	'format|f=s' => \$format,
 	'samples|s=s' => \@samples,
 	'plates|p=s' => \@plates
 
@@ -104,8 +104,7 @@ if (scalar (@samples) == 0) {
 }
 
 
-$prefix = "#p_#s_#i" if (!defined $format);
-$suffix = "" if (!defined $suffix);
+$format = "#s_#p_#i" if (!defined $format);
 $input = "." if (!defined $input);
 $output = "../output" if (!defined $output);
 
@@ -196,8 +195,8 @@ foreach my $sample (@samples) {
 	foreach my $plate (@plates) {
 		my $this_file_name_stub = $format;
 		$this_file_name_stub =~ s/\#s/$sample/ge;
-		$this_file_name_stub =~ s/\#p/$population/ge;
-		push $this_file_name_stub;
+		$this_file_name_stub =~ s/\#p/$plate/ge;
+		push @output_file_name_stubs, $this_file_name_stub;
 	}
 }
 
@@ -206,8 +205,7 @@ chomp $current;
 print "Current Path: " . $current. "\n";
 print "Input Path: " . $input . "\n";
 print "Output Path: " . $output . "\n";
-print "Prefix: " . $prefix . "\n";
-print "Suffix: " . $suffix . "\n";
+print "Format: " . $format . "\n";
 print "Samples: " . join(",", @samples) . "\n";
 print "Plates: " . join(",", @plates) . "\n";
 
@@ -215,24 +213,26 @@ print "Plates: " . join(",", @plates) . "\n";
 
 opendir(DIR, $input);
 my @input_file_names = readdir DIR;
-@input_file_names = grep !/^\./, @input_file_names; #Skip underscore prefixed
 @input_file_names = grep !/^\./, @input_file_names; #Skip period prefixed
-@input_file_names = grep !/^_/, @input_file_names; #Skip period prefixed
+@input_file_names = grep !/^_/, @input_file_names; #Skip underscore prefixed
 @input_file_names = grep {!(-d $_)} @input_file_names;
 @input_file_names = sort @input_file_names;
 
 print "Input File Names:" . join(",", @input_file_names) . "\n";
 
 
-exit "Unequal number of input and output file names." if (scalar @output_file_name_stubs != scalar @input_file_names);
+if (scalar @output_file_name_stubs != scalar @input_file_names) {
+	print "Unequal number of input and output file names. Expected " . scalar(@output_file_name_stubs) . " input files. Found " .  scalar (@input_file_names) . ".\n";
+	exit -1;
+}
 
 
 my @output_file_names = ();
 my $i=0;
 foreach my $input_file_name (@input_file_names) {
-	my $this_output_file_name = $output_file_name_stubs[$i]
+	my $this_output_file_name = $output_file_name_stubs[$i];
 	$this_output_file_name =~ s/\#i/$input_file_name/ge;
-	push @output_file_names, $prefix . $output_file_name_stubs[$i] . $suffix . $input_file_name;
+	push @output_file_names, $this_output_file_name;
 	$i++;
 }
 

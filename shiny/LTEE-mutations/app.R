@@ -70,13 +70,21 @@ filter_group_data <- function(input) {
   sanitized_mutation_category = tolower(sanitized_mutation_category)
   sanitized_mutation_category = gsub(" ", "_", sanitized_mutation_category)
   
+  print(input$generation_range)
+  print(input$selected_gene)
   filtered_data = data %>% 
-    filter(time >= input$generation_range[1], time <= input$generation_range[2]) %>% 
+    filter(time >= input$generation_range[1]) %>% 
+    filter(time <= input$generation_range[2]) %>% 
     filter(mutation_category %in% sanitized_mutation_category ) %>% 
     filter(mutator_status %in% input$mutator_status ) %>% 
-    filter(population %in% input$selected_populations ) %>% 
-    filter(grepl(input$selected_gene, gene_list, ignore.case=T)) %>%
-    arrange(population, time, strain)
+    filter(population %in% input$selected_populations )
+    
+  if (input$selected_gene!="") {
+    filtered_data = filtered_data %>%
+      filter(grepl(input$selected_gene, gene_list, ignore.case=T))
+  }
+  
+  filtered_data = filtered_data %>% arrange(population, time, strain)
   
   if (input$selected_strain != "") {
     filtered_data = filtered_data %>% 
@@ -114,23 +122,19 @@ filter_group_data <- function(input) {
 server <- shinyServer(function(input, output) {
   
   
-  output$mutation_table <- renderDataTable({
-    
-    filtered_data = filter_group_data(input)
-    
-    #Finally rename columns and select the ones we show
-    filtered_data %>%
-      select(population, time, strain, type, html_position, html_mutation, html_mutation_annotation, html_gene_name, html_gene_product) %>%
-      rename(pop=population, generation=time, position = html_position, mutation = html_mutation, annotation = html_mutation_annotation, gene = html_gene_name, product = html_gene_product)
-  }, 
-  
-  escape=FALSE, 
-  options = list(dom = 'lptp', 
-                 pageLength = 50,
-                 lengthMenu = c(25, 50, 100, 200, 500, 1000)
-               # , order = list(list(1, 'asc'), list(2, 'asc'), list(3, 'asc'))
-  ),
-  selection = 'none'
+  output$mutation_table <- renderDataTable(
+    {
+      
+      filtered_data = filter_group_data(input)
+      
+      #Finally rename columns and select the ones we show
+      filtered_data %>%
+        select(population, time, strain, type, html_position, html_mutation, html_mutation_annotation, html_gene_name, html_gene_product) %>%
+        rename(pop=population, generation=time, position = html_position, mutation = html_mutation, annotation = html_mutation_annotation, gene = html_gene_name, product = html_gene_product)
+    }, 
+    options = list(  ),
+    escape = FALSE,
+    selection = 'none'
   )
   
   output$resetable_input <- renderUI({

@@ -63,4 +63,4 @@ csv/*
 curation/*
 fasta/*
 *-annotated/*
-shiny/LTEE-clone-curated.tsv
+shiny/LTEE-mutations/LTEE-clone-curated.tsv

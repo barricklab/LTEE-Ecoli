@@ -6,9 +6,10 @@
 ##
 ## Default performs all steps
 ##
+## * init
+##     creates empty stub files
 ## * clean
 ##     removes all intermediate files
-##
 ## * summary
 ##     only performs steps needed for generating summary files
 ##     does not perform all steps normally used in curation
@@ -17,14 +18,14 @@
 ##
 ## What's in each directory??
 ##
-## 00_header
+## 00_header USER-PROVIDED
 ##   Initial breseq run output
-## 01_breseq_initial_gd
+## 01_breseq_initial_gd USER-PROVIDED
 ##   Initial breseq run output
-## 02_curate_add
+## 02_curate_add USER-EDITED
 ##   Files with the same names of mutations to add (false-negatives, resolved, split, deleted)
 ##   Added frequency=0.5
-## 02_curate_remove
+## 02_curate_remove USER-EDITED
 ##   Files with the same names of mutations to remove (false-positives)
 ## 03_curated_gd
 ##   Files with the curated mutations subtracted and added
@@ -42,11 +43,18 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${SCRIPT_DIR}/common.sh
 
 if [[ "$PWD" == "$SCRIPT_DIR" ]]; then
-  echo "Do not run this script from the main 'curation directory'. Run it from within a specific population directory"
+  echo "Do not run this script from the scripts directory. Run it from within a specific population directory."
   exit
 fi
 
-echo "Running in working directory: ${REFERENCE_DIR}"
+if [[ "$PWD" == "$LTEE_ECOLI_DIR" ]]; then
+  echo "Do not run this script from the main LTEE-Ecoli directory! Run it from within a specific population directory."
+  exit
+fi
+
+echo "Running in working directory: $PWD"
+echo "Reference directory: ${REFERENCE_DIR}"
+
 
 ## Masking used in Release 1.0
 
@@ -82,7 +90,9 @@ fi
 if [[ $1 == "clean" ]];
 then
   rm -rf 03* 04* 05* 06* 07* *.html mutated_genomes* *.count.csv oli.*.tab *.gd
-  echo "Deleted existing output files in ${PWD}"
+  echo "============================="
+  echo "Deleted existing output files"
+  echo "============================="
   exit 0
 fi
 
@@ -106,20 +116,21 @@ then
   cp $MAE_CLONE_CURATED_DIR/$ANCESTOR_FILE_NAME .
 fi
 
-
-## If we don't have header files, copy them from the 01_breseq_initial_gd
-
-if [ ! -d 00_header ];
-then
-  mkdir -p 00_header
-  cp 01_breseq_initial_gd/* 00_header
-fi
-
-
-## Create curate_add and curate_subtract files
+## Create header, curate_add, and curate_subtract files
 ## ONLY IF THEY DO NOT ALREADY EXIST
+(mkdir -p 00_header && cd 01_breseq_initial_gd; $BATCH_RUN -0 "if [ ! -f ../00_header/#d ]; then gdtools SUBTRACT -o ../tmp_#d #d #d; gdtools NOT-EVIDENCE -o ../00_header/#d ../tmp_#d; rm ../tmp_#d; fi")
 (mkdir -p 02_curate_add && cd 01_breseq_initial_gd; $BATCH_RUN -0 "if [ ! -f ../02_curate_add/#d ]; then gdtools SUBTRACT -o ../tmp_#d #d #d; gdtools NOT-EVIDENCE -o ../02_curate_add/#d ../tmp_#d; rm ../tmp_#d; fi")
 (mkdir -p 02_curate_remove && cd 01_breseq_initial_gd; $BATCH_RUN -0 "if [ ! -f ../02_curate_remove/#d ]; then gdtools SUBTRACT -o ../tmp_#d #d #d; gdtools NOT-EVIDENCE -o ../02_curate_remove/#d ../tmp_#d; rm ../tmp_#d; fi")
+
+## We are done if we are in init mode
+if [ $1 = "init" ];
+then
+  echo "======================="
+  echo "Initialization complete"
+  echo "======================="
+  exit 0
+fi
+
 
 echo $PWD
 
@@ -160,17 +171,14 @@ $TREE_UTILS ROOT-ANCESTOR -i 07_phylogeny/tree.tre -o 07_phylogeny/tree.rerooted
 $TREE_UTILS SCALE-PHYLIP -i 07_phylogeny/tree.rerooted.tre -o 07_phylogeny/tree.rerooted.rescaled.tre -p 07_phylogeny/tree.genotypes.txt
 
 #Rescale branch lengths to mutations
-PHYLOGENYSITES = awk 'NR==2{print length+1}' 07_phylogeny/tree.genotypes.txt
+PHYLOGENYSITES=`awk 'NR==2{print length+1}' 07_phylogeny/tree.genotypes.txt`
 PHYLOGENYSITES=`expr $PHYLOGENYSITES - 11`
 
 #SNP phylogeny
-if 1;
-then
-fi
 
 if [[ $1 != "summary" ]];
 then
-  (rm -r 07_phylogeny/discrepancies; mkdir -p 07_phylogeny/discrepancies; $TREE_UTILS DISCREPANCIES -i 07_phylogeny/tree.rerooted.tre -p 07_phylogeny/tree.phylip -o 07_phylogeny/discrepancies/tree)
+  (rm -r 07_phylogeny/discrepancies; mkdir -p 07_phylogeny/discrepancies; $TREE_UTILS DISCREPANCIES -i 07_phylogeny/tree.rerooted.tre -p 07_phylogeny/tree -o 07_phylogeny/discrepancies/tree)
 fi
 
 ## COMPARE

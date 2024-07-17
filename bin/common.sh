@@ -66,6 +66,7 @@ BATCH_RUN="perl ${SCRIPT_DIR}/batch_run.pl"
 TREE_UTILS="perl ${SCRIPT_DIR}/tree_utils.pl"
 REFERENCE_DIR="$SCRIPT_DIR/../reference"
 SUMMARY_DIR="$SCRIPT_DIR/../summary"
+LTEE_ECOLI_DIR="$SCRIPT_DIR/.."
 
 LTEE_CLONE_CURATED_DIR="$SCRIPT_DIR/../LTEE-clone-curated"
 MAE_CLONE_CURATED_DIR="$SCRIPT_DIR/../MAE-clone-curated"

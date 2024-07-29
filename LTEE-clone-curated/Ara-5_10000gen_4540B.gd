@@ -5,10 +5,10 @@
 #=POPULATION	Ara-5
 #=TREATMENT	LTEE
 #=CLONE	B
-#=MUTATOR_STATUS	non-mutator
 #=REFSEQ	https://raw.githubusercontent.com/barricklab/LTEE/7da91974eafac0c5a8f903ae57275795d4395af2/reference/REL606.gbk
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/002/SRR2589062/SRR2589062_1.fastq.gz
 #=READSEQ	ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/002/SRR2589062/SRR2589062_2.fastq.gz
+#=MUTATOR_STATUS	non-mutator
 SNP	1	.	REL606	216587	G
 SNP	2	.	REL606	415425	A
 MOB	3	.	REL606	471784	IS150	1	-1	ins_start=TCG

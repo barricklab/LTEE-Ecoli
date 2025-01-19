@@ -10,7 +10,7 @@ rename_plate_photos.pl
 
 =head1 SYNOPSIS
 
-Usage: rename_plate_photos.pl -i raw -o renamed -s LTEE-INTERSPERSED -f "075500gen_#s_#p_24h_bottom_#i"
+Usage: rename_plate_photos.pl -i raw -e JPG -o renamed -s LTEE-INTERSPERSED -f "075500gen_#s_#p_24h_bottom_#i"
 
 =head1 DESCRIPTION
 
@@ -20,17 +20,23 @@ Usage: rename_plate_photos.pl -i raw -o renamed -s LTEE-INTERSPERSED -f "075500g
 
 Path to input folder.
 
+=item B<-e,--extension <file extension>
+
+Only process input files with this extension (case-insensitive)
+
+Default: JPG
+
 =item B<-o,--output> <path to folder>
 
 Path to output folder. Created if it doesn't exist.
 
 =item B<-f,--format> <format_string>
 
-Format string to create output file names. 
+Format string to create output file names.
 
 #p will be replaced with the plate type
 #s will be replaced with the sample name
-#i will be replaced with the input file name with the input file name
+#i will be replaced with the input file name (including its extension!)
 
 Default: "#s-#p-#i"
 
@@ -81,7 +87,7 @@ use File::Path qw(make_path);
 use Getopt::Long;
 use Pod::Usage;
 my ($help, $man);
-my ($input, $output, $format);
+my ($input, $extension, $output, $format);
 my @samples = ();
 my @plates = ();
 
@@ -89,6 +95,7 @@ my @plates = ();
 GetOptions(
 	'help|h' => \$help, 'man' => \$man,
 	'input|i=s' => \$input,
+	'extension|e=s' => \$extension,
 	'output|o=s' => \$output,
 	'format|f=s' => \$format,
 	'samples|s=s' => \@samples,
@@ -106,6 +113,7 @@ if (scalar (@samples) == 0) {
 
 $format = "#s_#p_#i" if (!defined $format);
 $input = "." if (!defined $input);
+$extension = "JPG" if (!defined $input);
 $output = "../output" if (!defined $output);
 
 if (scalar @samples == 1) {
@@ -191,7 +199,7 @@ if ( scalar (@plates) == 0) {
 # All plates for one sample, then next sample...
 my @output_file_name_stubs = ();
 foreach my $sample (@samples) {
-	print("$sample\n");
+	#print("$sample\n");
 	foreach my $plate (@plates) {
 		my $this_file_name_stub = $format;
 		$this_file_name_stub =~ s/\#s/$sample/ge;
@@ -216,6 +224,10 @@ my @input_file_names = readdir DIR;
 @input_file_names = grep !/^\./, @input_file_names; #Skip period prefixed
 @input_file_names = grep !/^_/, @input_file_names; #Skip underscore prefixed
 @input_file_names = grep {!(-d $_)} @input_file_names;
+@input_file_names = grep { $_ =~ /\.$extension$/i } @input_file_names; #Only keep ones with extension
+
+$extension = "JPG" if (!defined $input);
+
 @input_file_names = sort @input_file_names;
 
 print "Input File Names:" . join(",", @input_file_names) . "\n";

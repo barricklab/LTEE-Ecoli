@@ -1,5 +1,5 @@
 #=GENOME_DIFF	1.0
-#=AUTHOR	Deatherage, Daniel
+#=TITLE	Anc+_0gen_REL607
 #=TIME	0
 #=POPULATION	Ara+
 #=TREATMENT	LTEE

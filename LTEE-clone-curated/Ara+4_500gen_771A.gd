@@ -1,6 +1,5 @@
 #=GENOME_DIFF	1.0
 #=TITLE	Ara+4_500gen_771A
-#=AUTHOR	Deatherage, Daniel
 #=TIME	500
 #=POPULATION	Ara+4
 #=TREATMENT	LTEE

@@ -1,6 +1,5 @@
 #=GENOME_DIFF	1.0
 #=TITLE	Ara-2_500gen_763B
-#=AUTHOR	Deatherage, Daniel
 #=TIME	500
 #=POPULATION	Ara-2
 #=TREATMENT	LTEE

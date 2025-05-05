@@ -54,6 +54,9 @@ population_order = {
 base_names = {}
 
 existing_files=glob.glob(os.path.join(input_path,"*"))
+
+print(os.path.join(input_path,"*"))
+
 if args.match:
   existing_files = [entry for entry in existing_files if args.match in entry]
 
@@ -67,7 +70,7 @@ for file_name in existing_files:
   file_name_key = re.sub(r'(A-1|A-2|A-3|A-4|A-5|A-6|A\+1|A\+2|A\+3|A\+4|A\+5|A\+6)', "COMBINED",file_name)
 
   #remove image number
-  file_name_key = re.sub(r'_P[A-Z]?\d+(\..+)$', "\1",file_name_key)
+  file_name_key = re.sub(r'_P[A-Z]?\d+(\..+)$', "",file_name_key)
 
   #print(file_name_key)
   #print(population_key)

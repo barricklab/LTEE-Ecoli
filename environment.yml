@@ -9,4 +9,4 @@ dependencies:
   - phylip=3.697
   - pip
   - pip:
-    - genomediff-python==0.4.1
+    - genomediff==0.4.1

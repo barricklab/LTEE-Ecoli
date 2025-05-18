@@ -1,9 +1,13 @@
-name: ltee-ecoli
+name: LTEE-Ecoli
 channels:
   - conda-forge
   - bioconda
 dependencies:
-  - python=2.7
+  - python=3.12
+  - pip
   - breseq=0.36.1
+  - perl=5.32.1
   - perl-bioperl-core=1.7.8
   - phylip=3.697
+  - pip:
+    - genomediff==0.4.1

@@ -184,8 +184,8 @@ fi
 ## COMPARE
 if [[ $1 != "summary" ]];
 then
-  (cd 04_final_normalized_gd && gdtools COMPARE -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized.html `ls *.gd`)
-  (cd 05_normalized_masked_gd && gdtools COMPARE -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized_masked.html `ls *.gd`)
+  (cd 04_final_normalized_gd && gdtools COMPARE --repeat-header 10 -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized.html `ls *.gd`)
+  (cd 05_normalized_masked_gd && gdtools COMPARE --repeat-header 10 -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized_masked.html `ls *.gd`)
 fi
 
 

@@ -68,7 +68,7 @@ def parse_gd_file(input_file):
         sorted_readseq_urls = sorted(readseq_urls)
         if len(readseq_urls) == 2 and re.search(r"_1\.fastq\.gz", readseq_urls[0]) and re.search(r"_2\.fastq\.gz", readseq_urls[1]):
 
-            sra_match = re.search(r"(E|SRR[0-9]+)_\*\.fastq\.gz", readseq_base_name)
+            sra_match = re.search(r"(ERR[0-9]+|SRR[0-9]+)_\*\.fastq\.gz", readseq_base_name)
 
             if sra_match:
                 paired_read_seq_url = f"sra://{sra_match.group(1)}"
@@ -79,7 +79,7 @@ def parse_gd_file(input_file):
         else:
             for readseq_url in sorted_readseq_urls:
 
-                sra_match = re.search(r"(E|SRR[0-9]+)\.fastq\.gz", readseq_url)
+                sra_match = re.search(r"(ERR[0-9]+|SRR[0-9]+)\.fastq\.gz", readseq_url)
                 if sra_match:
                     readseq_url = f"sra://{sra_match.group(1)}"
 

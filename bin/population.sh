@@ -36,7 +36,7 @@
 ##   Further masks out mutations in regions where they cannot reliably be called
 ## 06_normalized_masked_no_is_adjacent_gd
 ##   Further masks out small mutations that are near IS elements (which are mutational hotspots)
-## 07_phylogeny
+## 08_phylogeny
 ##   Creates a phylogenetic tree
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -89,7 +89,7 @@ fi
 
 if [[ $1 == "clean" ]];
 then
-  rm -rf 03* 04* 05* 06* 07* *.html mutated_genomes* *.count.csv oli.*.tab *.gd
+  rm -rf 03* 04* 05* 06* 07* 08* *.html mutated_genomes* *.count.csv *.gd
   echo "============================="
   echo "Deleted existing output files"
   echo "============================="
@@ -112,7 +112,7 @@ fi
 
 if [[ "${PWD##*/}" == MAE* ]];
 then
-  ANCESTOR_FILE_NAME="Anc+_REL1207.gd"
+  ANCESTOR_FILE_NAME="Anc+_0gen_REL1207.gd"
   cp $MAE_CLONE_CURATED_DIR/$ANCESTOR_FILE_NAME .
 fi
 
@@ -155,9 +155,9 @@ else
 fi
 
 ## NORMALIZED and MASKED version
-(mkdir -p 05_normalized_masked_gd && cd 04_final_normalized_gd && $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c type==CON -o ../tmp1_#d #d && gdtools SUBTRACT -o ../tmp2_#d ../tmp1_#d $REFERENCE_DIR/prophage-amplifications.gd ../$ANCESTOR_FILE_NAME && gdtools MASK -v -s -o ../05_normalized_masked_gd/#d ../tmp2_#d $MASK_GD_FILE && rm ../tmp*_#d")
-(mkdir -p 06_normalized_masked_no_IS_adjacent_gd && cd 05_normalized_masked_gd &&  $BATCH_RUN -p "gd" -0 "gdtools REMOVE -e -c TYPE!=UN -c adjacent!=UNDEFINED -o ../06_normalized_masked_no_IS_adjacent_gd/#d #d")
-
+(mkdir -p 05_normalized_masked_gd && cd 04_final_normalized_gd && $BATCH_RUN -p "gd" -0 "gdtools REMOVE -c type==CON -o ../tmp1_#d #d && gdtools SUBTRACT -o ../tmp2_#d ../tmp1_#d $REFERENCE_DIR/prophage-amplifications.gd && gdtools MASK -v -s -o ../05_normalized_masked_gd/#d ../tmp2_#d $MASK_GD_FILE && rm ../tmp*_#d")
+(mkdir -p 06_normalized_masked_no_anc_gd && cd 05_normalized_masked_gd && $BATCH_RUN -p "gd" -0 "gdtools SUBTRACT -o ../06_normalized_masked_no_anc_gd/#d #d ../$ANCESTOR_FILE_NAME")
+(mkdir -p 07_normalized_masked_no_anc_no_IS_adjacent_gd && cd 06_normalized_masked_no_anc_gd &&  $BATCH_RUN -p "gd" -0 "gdtools REMOVE -e -c TYPE!=UN -c adjacent!=UNDEFINED -o ../07_normalized_masked_no_anc_no_IS_adjacent_gd/#d #d")
 
 ### APPLY check
 if [[ $1 != "summary" ]];
@@ -166,26 +166,27 @@ then
 fi
 
 ##PHYLOGENY CHECK (based on final_normalized)
-(mkdir -p 07_phylogeny && cd 05_normalized_masked_gd && gdtools PHYLOGENY -p -a -o ../07_phylogeny/tree -r $REFERENCE_DIR/REL606.gbk `ls ../Anc*.gd` `ls *.gd`)
-$TREE_UTILS ROOT-ANCESTOR -i 07_phylogeny/tree.tre -o 07_phylogeny/tree.rerooted.tre
-$TREE_UTILS SCALE-PHYLIP -i 07_phylogeny/tree.rerooted.tre -o 07_phylogeny/tree.rerooted.rescaled.tre -p 07_phylogeny/tree.genotypes.txt
+(mkdir -p 08_phylogeny && cd 05_normalized_masked_gd && gdtools PHYLOGENY -p -a -o ../08_phylogeny/tree -r $REFERENCE_DIR/REL606.gbk `ls ../Anc*.gd` `ls *.gd`)
+$TREE_UTILS ROOT-ANCESTOR -i 08_phylogeny/tree.tre -o 08_phylogeny/tree.rerooted.tre
+$TREE_UTILS SCALE-PHYLIP -i 08_phylogeny/tree.rerooted.tre -o 08_phylogeny/tree.rerooted.rescaled.tre -p 08_phylogeny/tree.genotypes.txt
 
 #Rescale branch lengths to mutations
-PHYLOGENYSITES=`awk 'NR==2{print length+1}' 07_phylogeny/tree.genotypes.txt`
+PHYLOGENYSITES=`awk 'NR==2{print length+1}' 08_phylogeny/tree.genotypes.txt`
 PHYLOGENYSITES=`expr $PHYLOGENYSITES - 11`
 
 #SNP phylogeny
 
 if [[ $1 != "summary" ]];
 then
-  (rm -r 07_phylogeny/discrepancies; mkdir -p 07_phylogeny/discrepancies; $TREE_UTILS DISCREPANCIES -i 07_phylogeny/tree.rerooted.tre -p 07_phylogeny/tree -o 07_phylogeny/discrepancies/tree)
+  (rm -r 08_phylogeny/discrepancies; mkdir -p 08_phylogeny/discrepancies; $TREE_UTILS DISCREPANCIES -i 08_phylogeny/tree.rerooted.tre -p 08_phylogeny/tree -o 08_phylogeny/discrepancies/tree)
 fi
 
 ## COMPARE
 if [[ $1 != "summary" ]];
 then
-  (cd 04_final_normalized_gd && gdtools COMPARE -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized.html `ls *.gd`)
-  (cd 05_normalized_masked_gd && gdtools COMPARE -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized_masked.html `ls *.gd`)
+  (cd 04_final_normalized_gd && gdtools COMPARE -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized.html ../$ANCESTOR_FILE_NAME `ls *.gd`)
+  (cd 04_final_normalized_gd && gdtools COMPARE -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized_phylogeny_aware.html ../$ANCESTOR_FILE_NAME `ls *.gd`)
+  (cd 05_normalized_masked_gd && gdtools COMPARE -p -r $REFERENCE_DIR/REL606.gbk -o ../compare_normalized_masked_phylogeny_aware.html ../$ANCESTOR_FILE_NAME `ls *.gd`)
 fi
 
 
@@ -193,15 +194,11 @@ fi
 if [[ $1 != "summary" ]];
 then
   (cd 01_breseq_initial_gd && gdtools COUNT -o ../initial.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
-  (cd 05_normalized_masked_gd && gdtools COUNT -o ../final_masked.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
   (cd 04_final_normalized_gd && gdtools COUNT -o ../final.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
+  (cd 06_normalized_masked_no_anc_gd && gdtools COUNT -o ../final_masked_no_anc.count.csv -r $REFERENCE_DIR/REL606.gbk `ls *.gd`)
 fi
 
-## Oli
-if [[ $1 != "summary" ]];
-then
-  (cd 06_normalized_masked_no_IS_adjacent_gd &&  gdtools GD2OLI -p -r $REFERENCE_DIR/REL606.gbk -o ../oli.final_masked.no_IS_adjacent.tab `ls *.gd`)
-fi
+
 ################### Special for certain populations
 
 ### Based on SNPs only
@@ -212,12 +209,12 @@ fi
 
 ###special for Ara-2
 #(cd 05_normalized_masked_gd && gdtools COMPARE -r ../REL606.gbk -o ../S.compare_normalized_masked.html Ara-2_5000gen_2180B.gd Ara-2_15000gen_7178A.gd Ara-2_20000gen_20K-S1.gd Ara-2_30000gen_30K-S1.gd Ara-2_40000gen_11036.gd Ara-2_50000gen_11335.gd)
-#(cd 05_normalized_masked_gd; gdtools PHYLOGENY -o ../07_phylogeny/S.tree -r ../REL606.gbk `ls ../Anc*.gd` Ara-2_5000gen_2180B.gd Ara-2_15000gen_7178A.gd Ara-2_20000gen_20K-S1.gd Ara-2_30000gen_30K-S1.gd Ara-2_40000gen_11036.gd Ara-2_50000gen_11335.gd)
-#tree_utils ROOT-ANCESTOR -i 07_phylogeny/S.tree.tre -o 07_phylogeny/S.tree.rerooted.tre
+#(cd 05_normalized_masked_gd; gdtools PHYLOGENY -o ../08_phylogeny/S.tree -r ../REL606.gbk `ls ../Anc*.gd` Ara-2_5000gen_2180B.gd Ara-2_15000gen_7178A.gd Ara-2_20000gen_20K-S1.gd Ara-2_30000gen_30K-S1.gd Ara-2_40000gen_11036.gd Ara-2_50000gen_11335.gd)
+#tree_utils ROOT-ANCESTOR -i 08_phylogeny/S.tree.tre -o 08_phylogeny/S.tree.rerooted.tre
 
 #(cd 05_normalized_masked_gd && gdtools COMPARE -r ../REL606.gbk -o ../L.compare_normalized_masked.html Ara-2_5000gen_2180A.gd Ara-2_10000gen_4537A.gd Ara-2_10000gen_4537B.gd Ara-2_15000gen_7178B.gd Ara-2_20000gen_20K-LA.gd Ara-2_30000gen_30K-L1.gd Ara-2_40000gen_11035.gd Ara-2_50000gen_11333.gd)
-#(cd 05_normalized_masked_gd; gdtools PHYLOGENY -o ../07_phylogeny/L.tree -r ../REL606.gbk `ls ../Anc*.gd` Ara-2_5000gen_2180A.gd Ara-2_10000gen_4537A.gd Ara-2_10000gen_4537B.gd Ara-2_15000gen_7178B.gd Ara-2_20000gen_20K-LA.gd Ara-2_30000gen_30K-L1.gd Ara-2_40000gen_11035.gd Ara-2_50000gen_11333.gd)
-#tree_utils ROOT-ANCESTOR -i 07_phylogeny/L.tree.tre -o 07_phylogeny/L.tree.rerooted.tre
+#(cd 05_normalized_masked_gd; gdtools PHYLOGENY -o ../08_phylogeny/L.tree -r ../REL606.gbk `ls ../Anc*.gd` Ara-2_5000gen_2180A.gd Ara-2_10000gen_4537A.gd Ara-2_10000gen_4537B.gd Ara-2_15000gen_7178B.gd Ara-2_20000gen_20K-LA.gd Ara-2_30000gen_30K-L1.gd Ara-2_40000gen_11035.gd Ara-2_50000gen_11333.gd)
+#tree_utils ROOT-ANCESTOR -i 08_phylogeny/L.tree.tre -o 08_phylogeny/L.tree.rerooted.tre
 
 ###special for Ara-5, leaves out alien clone
 #(cd 05_normalized_masked_gd && gdtools COMPARE -r ../REL606.gbk -o ../no_alien.compare_normalized_masked.html Ara-5_10000gen_4540A.gd Ara-5_10000gen_4540B.gd Ara-5_1000gen_968A.gd Ara-5_1000gen_968B.gd Ara-5_15000gen_7181A.gd Ara-5_15000gen_7181B.gd Ara-5_1500gen_1072A.gd Ara-5_1500gen_1072B.gd Ara-5_20000gen_8597A.gd Ara-5_20000gen_8597B.gd Ara-5_2000gen_1168A.gd Ara-5_2000gen_1168B.gd Ara-5_30000gen_10405.gd Ara-5_40000gen_10947.gd Ara-5_40000gen_10948.gd Ara-5_50000gen_11339.gd Ara-5_50000gen_11340.gd Ara-5_5000gen_2183A.gd Ara-5_5000gen_2183B.gd Ara-5_500gen_766A.gd Ara-5_500gen_766B.gd)

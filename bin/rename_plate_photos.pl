@@ -120,6 +120,8 @@ if (scalar @samples == 1) {
 
 	my $preset_sample_set_name = "\U$samples[0]";
 
+	print($preset_sample_set_name . "n");
+
 	if ($preset_sample_set_name eq "LTEE-INTERSPERSED") {
 		@samples = (
 			"A-1",
@@ -135,8 +137,10 @@ if (scalar @samples == 1) {
 			"A-6",
 			"A+6",
 		);
-	} if ($preset_sample_set_name eq "LTEE-INTERSPERSED+ANCESTORS") {
+	} elsif ($preset_sample_set_name eq "LTEE-INTERSPERSED+ANCESTORS") {
 		@samples = (
+			"REL606",
+			"REL607",
 			"A-1",
 			"A+1",
 			"A-2",

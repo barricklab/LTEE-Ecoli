@@ -1,10 +1,15 @@
 # You must load the conda environment before calling this command
-#conda activate LTEE-Ecoli
+# conda activate LTEE-Ecoli
+# and install Pillow
+# conda install pillow
 
 # Takes folders of photos named 24h_raw and 48h_raw in the current directory... copies them 
 # into one folder named by generation, population, and medium... and compiles montages
 
+#Use YYYY-MM-DD
 #DATE="2025-03-26"
+
+#Use a 7-digit generation number with a leading 0
 #GENERATON="081500"
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -19,13 +24,16 @@ FOLDER_NAME="${GENERATION}gen_${DATE}"
 INDIVIDUAL_OUTPUT="individual/${FOLDER_NAME}"
 mkdir -p $INDIVIDUAL_OUTPUT
 
+# For different plate and population order, you can change some options as in this example
+#$SCRIPT_DIR/rename_plate_photos.pl -i 24h_raw -e JPG -o $INDIVIDUAL_OUTPUT -p MA -p MG -p TA -s LTEE-ORDERED -f "${GENERATION}gen_#s_#p_24h_bottom_#i"
+
 $SCRIPT_DIR/rename_plate_photos.pl -i 24h_raw -e JPG -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_24h_bottom_#i"
-$SCRIPT_DIR/rename_plate_photos.pl -i 24h_raw -e ORF -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_24h_bottom_#i"
-$SCRIPT_DIR/rename_plate_photos.pl -i 24h_raw -e ORI -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_24h_bottom_#i"
+#$SCRIPT_DIR/rename_plate_photos.pl -i 24h_raw -e ORF -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_24h_bottom_#i"
+#$SCRIPT_DIR/rename_plate_photos.pl -i 24h_raw -e ORI -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_24h_bottom_#i"
 
 $SCRIPT_DIR/rename_plate_photos.pl -i 48h_raw -e JPG -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_48h_bottom_#i"
-$SCRIPT_DIR/rename_plate_photos.pl -i 48h_raw -e ORF -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_48h_bottom_#i"
-$SCRIPT_DIR/rename_plate_photos.pl -i 48h_raw -e ORI -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_48h_bottom_#i"
+#$SCRIPT_DIR/rename_plate_photos.pl -i 48h_raw -e ORF -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_48h_bottom_#i"
+#$SCRIPT_DIR/rename_plate_photos.pl -i 48h_raw -e ORI -o $INDIVIDUAL_OUTPUT -s LTEE-INTERSPERSED -f "${GENERATION}gen_#s_#p_48h_bottom_#i"
 
 COMPOSED_OUTPUT="composed/${FOLDER_NAME}"
 mkdir -p $COMPOSED_OUTPUT
